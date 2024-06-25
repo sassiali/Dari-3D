@@ -14,8 +14,6 @@ import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalComponent } from './modal/modal.component';
 import { NgbdModalContent } from './modal/modal.component';
-import { FrontComponent } from '../front.component';
-import { NavbarComponent } from '../shared/navbar/navbar.component';
 
 @NgModule({
     imports: [
@@ -35,9 +33,8 @@ import { NavbarComponent } from '../shared/navbar/navbar.component';
         NotificationComponent,
         NgbdModalComponent,
         NgbdModalContent,
-        // NavbarComponent
     ],
     entryComponents: [NgbdModalContent],
-    exports:[ ComponentsComponent ]
+    exports:[ ComponentsComponent ],
 })
 export class ComponentsModule { }
