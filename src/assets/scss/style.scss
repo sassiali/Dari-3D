@@ -1,26 +1,21 @@
-@use "@angular/material" as mat;
-@include mat.core();
+// 
+// Xtreme Angular
+// 
 
-@import "variables";
-@import "layouts/transitions";
-@import "helpers/color";
-@import "helpers/icon-size";
+//(Required file)
+@import "variable";
 
-//Theme colors
+// Import Bootstrap source files (Required file)
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../../node_modules/bootstrap-icons/font/bootstrap-icons.scss";
 
-@import "themecolors/default_theme";
-@include mat.all-component-themes($bluetheme);
+//This is for the components (Required file)
+@import "core/core";
+@import "scafholdings";
+@import "components";
 
-//container layout
-@import "overrides/materialoverrides";
-@import "container";
-@import "layouts/layouts";
-@import "grid/grid";
-@import "helpers/custom-flex";
-@import "helpers/index";
+//This is for the responsive (Required file)
+@import "responsive";
 
-
-// pages
-@import "pages/dashboards";
-@import "pages/auth";
-
+//In This scss you can write your scss
+@import "custom";

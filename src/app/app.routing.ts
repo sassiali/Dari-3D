@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes =[
   
   { path: 'front', loadChildren: () => import('./front/front-routing.module').then(m => m.FrontRoutingModule) },
+  { path: 'dash', loadChildren: () => import('./dash/dash-routing.module').then(m => m.DashRoutingModule) },
 
     { path: '', redirectTo: 'front', pathMatch: 'full' },
 ];
