@@ -30,6 +30,7 @@ import { ExamplesModule } from './examples/examples.module';
     ComponentsModule,
     ExamplesModule,
     FrontRoutingModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [FrontComponent],

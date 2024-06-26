@@ -18,26 +18,7 @@
                             </a>
                         </div>
                         <form class="register-form">
-                            <label style=" color: rgb(0, 0, 0);">nom de famille</label>
-                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <!-- <i class="nc-icon nc-icon"></i> -->
-                                    </span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="nom de famille" (focus)="focus=true" (blur)="focus=false">
-                            </div>
-
-                            <label style="color: rgb(0, 0, 0);">prenom</label>
-                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <!-- <i class="nc-icon nc-email-85"></i> -->
-                                    </span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="prenom" (focus)="focus=true" (blur)="focus=false">
-                            </div>
-
+                        
                             <label style="color: rgb(0, 0, 0);">Email</label>
                             <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                                 <div class="input-group-prepend">
@@ -59,7 +40,9 @@
                             <button class="btn btn-danger btn-block btn-round">Register</button>
                         </form>
                         <div class="forgot">
-                            <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
+                            <a href="#" class="btn btn-link btn-danger">Mot de passe oublier?</a>
+                            <a [routerLink]="['/signup']"class="btn btn-link btn-danger">Créer un compte </a>
+
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,40 @@
+<div class="section landing-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mr-auto ml-auto">
+                <h4 class="info-title">
+                    Notre Application Web <span style="font-weight: bold; color: red;">DARI 3D</span> vous offrir <span style="font-weight: bold; color: blue;">l'oportuniter</span> de <span style="font-weight: bold; color: green;">publier vos produits</span> sur notre <span style="font-weight: bold; color: purple;">plateforme</span> pour <span style="font-weight: bold; color: orange;">augmenter vos ventes</span> et <span style="font-weight: bold; color: pink;">offrir des offres compétitives de qualité</span>
+                </h4>
+                                    <form class="contact-form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Nom</label>
+                            <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text"><i class="nc-icon nc-single-02"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="nom" (focus)="focus=true" (blur)="focus=false" >
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Email</label>
+                            <div class="input-group" [ngClass]="{'input-group-focus':focus1===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">  <i class="nc-icon nc-email-85"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Email" (focus)="focus1=true" (blur)="focus1=false" >
+                            </div>
+                        </div>
+                    </div>
+                    <label>Message</label>
+                    <textarea class="form-control" rows="4" placeholder="Saisir votre message.."></textarea>
+                    <div class="row">
+                        <div class="col-md-4 mr-auto ml-auto">
+                            <button class="btn btn-danger btn-lg btn-fill">Envoyer votre Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
