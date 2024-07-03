@@ -1,0 +1,10 @@
+.transparent-container {
+    background-color: transparent; /* Rend le fond transparent */
+}
+
+.card-register {
+    background-color: rgba(255, 255, 255, 0.9); /* Ajoutez une légère transparence au fond de la carte pour la lisibilité */
+    border: none; /* Supprimez les bordures si nécessaire */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ajoutez une ombre douce pour l'esthétique */
+}
+    
