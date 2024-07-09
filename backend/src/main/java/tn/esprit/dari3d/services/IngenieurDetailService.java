@@ -48,9 +48,7 @@ public class IngenieurDetailService implements IIngenieurDetailService {
     if (ingenieurDetail.getPicturesOfDoneProjects().size() < 3)
       ingenieurDetail.setPicturesOfDoneProjects(picture);
     picturesOfDoneProjectsRepository.saveAll(picture);
-
     ingenieurDetailRepository.save(ingenieurDetail);
-
 
   }
 }

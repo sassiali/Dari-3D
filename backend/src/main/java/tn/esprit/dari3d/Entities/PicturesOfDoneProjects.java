@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.Base64;
+
 @Entity
 @Getter
 @Setter
@@ -12,16 +14,27 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class PicturesOfDoneProjects {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Setter(AccessLevel.NONE)
-     Long id;
-     String pictures;
-     @JsonIgnore
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Setter(AccessLevel.NONE)
+  Long id;
 
-     @ManyToOne
-    @JoinColumn(name = "ingenieur_detail_id")
-     IngenieurDetail ingenieurDetail;
+  String picturePath; // Ajout du champ pour le chemin d'accès de l'image
 
+  @JsonIgnore
+  @ManyToOne
+  @JoinColumn(name = "ingenieur_detail_id")
+  IngenieurDetail ingenieurDetail;
 
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public void setPicturePath(String picturePath) {
+    this.picturePath = picturePath; // Modification de la méthode pour enregistrer le chemin d'accès de l'image
+  }
 }
