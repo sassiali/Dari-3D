@@ -8,7 +8,7 @@ const routes: Routes =[
   { path: 'front', loadChildren: () => import('./front/front-routing.module').then(m => m.FrontRoutingModule) },
   { path: 'dash', loadChildren: () => import('./dash/dash-routing.module').then(m => m.DashRoutingModule) },
 
-    { path: '', redirectTo: 'dash', pathMatch: 'full' },
+    { path: '', redirectTo: 'front', pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -16,8 +16,9 @@ const routes: Routes =[
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes,{
-      useHash: true
+      useHash: false
     })
+    // RouterModule.forChild(routes)
   ],
   exports: [
   ],

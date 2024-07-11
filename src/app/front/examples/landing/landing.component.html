@@ -3,7 +3,7 @@
     <div class="container">
         <div class="motto text-center">
             <h1 class="presentation-title">DARI 3D</h1>
-            <h3>Construisez vos réves, un clic a la fois</h3>
+            <h3 class="presentation-subtitle text-center">Construisez vos réves, un clic a la fois</h3>
             <div class="moving-clouds" style="background-image: url('assets/img/clouds.png'); "></div>
 
             <br />
@@ -20,7 +20,7 @@
                 <h2 class="title">vous été qui !?</h2>
                 <!-- <h5 class="description">This is the paragraph where you can write more details about your product. Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise he wouldn't scroll to get here. Add a button if you want the user to see more.</h5> -->
                 <br>
-                <a href="#paper-kit" class="btn btn-danger btn-round">See Details</a>
+                <!-- <a href="#paper-kit" class="btn btn-danger btn-round">See Details</a> -->
             </div>
         </div>
         <br/><br/>
@@ -33,7 +33,7 @@
                     <div class="description">
                         <h4 class="info-title">Ingénieur Béton</h4>
                         <p class="description">Vous cherchez à élargir votre clientèle et à montrer vos projets passés ? </p>
-                        <a [routerLink]="['/ingenieur']" class="btn btn-link btn-danger">Voir détails</a>
+                        <a (click)="redirectToRolePage(Role.ENGINEER)" class="btn btn-link btn-danger">Voir détails</a>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                     <div class="description">
                         <h4 class="info-title">Particulier</h4>
                         <p>Vous avez rencontrez des difficultés à créer un plan et à trouver les meilleurs prix pour les fournitures de construction ?</p>
-                        <a [routerLink]="['/particulier']"  class="btn btn-link btn-danger">Voir détails</a>
+                        <a (click)="redirectToRolePage(Role.CLIENT)" class="btn btn-link btn-danger">Voir détails</a>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,8 @@
                     <div class="description">
                         <h4 class="info-title">Fournisseur</h4>
                         <p>"Vous voulez promouvoir vos matériaux de construction et atteindre un public plus large ?</p>
-                        <a [routerLink]="['/fournisseur']"  class="btn btn-link btn-danger">Voir détails</a>
+                        <a (click)="redirectToRolePage(Role.SUPPLIER)" class="btn btn-link btn-danger">Voir détails</a>
+
                     </div>
                 </div>
             </div>

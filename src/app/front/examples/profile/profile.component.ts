@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../../core/services/user.service';
+import { AuthService } from '../../../core/services/auth.service';
+import { Users } from '../../../core/models/Users';
 
 @Component({
     selector: 'app-profile',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ProfileComponent implements OnInit {
+email:any;
+userInfo:Users;
+    constructor(
+        private userService:UserService
+        ,private authService:AuthService
+    ) { }
 
-    constructor() { }
+    ngOnInit() {
+        this.email=this.authService.getUserInfo()
+        this.userService.getUserByEmail(this.email.sub).subscribe(
+            data => {
+              this.userInfo = data;
+              console.log("hello user info",this.userInfo)
 
-    ngOnInit() {}
+            },
+            error => {
+              console.error('Error fetching user by email:', error);
+            }
+          );
+    }
 
 }

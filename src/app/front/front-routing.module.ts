@@ -13,6 +13,9 @@ import { IngenieurComponent } from './examples/ingenieur/ingenieur.component';
 import { ParticulierComponent } from './examples/particulier/particulier.component';
 import { FournisseurComponent } from './examples/fournisseur/fournisseur.component';
 import { SigninComponent } from './examples/signin/signin.component';
+import { ForgetPasswordComponent } from './examples/forget-password/forget-password.component';
+import { SetPasswordComponent } from './examples/set-password/set-password.component';
+import { CallBackComponent } from './examples/call-back/call-back.component';
 
 const routes: Routes =[{
   path: '', 
@@ -27,7 +30,12 @@ const routes: Routes =[{
     { path: 'signin',           component: SigninComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent },
-     { path: '', redirectTo: 'home', pathMatch: 'full' },
+    {path:'forgot-password',    component:ForgetPasswordComponent},
+    {path:'set-password/:email',    component:SetPasswordComponent},
+    {path:'callback',    component:CallBackComponent},
+
+
+   { path: '', redirectTo: 'landing', pathMatch: 'full' },
     ]}
 ];
 
@@ -36,10 +44,10 @@ const routes: Routes =[{
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes,{
-      useHash: true
-    })
-  ],
+    // RouterModule.forRoot(routes,{
+    //   useHash: true
+    // })
+    RouterModule.forRoot(routes, { useHash: false })  ],
   exports: [
   ],
 })

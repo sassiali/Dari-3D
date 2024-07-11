@@ -14,6 +14,9 @@ import { NavigationComponent } from './shared/header/navigation.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { FournisseurComponent } from './Gestions/fournisseur/fournisseur.component';
+import { IngenieurComponent } from './Gestions/ingenieur/ingenieur.component';
+import { ParticulierComponent } from './Gestions/particulier/particulier.component';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
   wheelSpeed: 1,
@@ -28,6 +31,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FullComponent,
     NavigationComponent,
     SidebarComponent,
+    FournisseurComponent,
+    IngenieurComponent,
+    ParticulierComponent,
   ],
   imports: [
     CommonModule,

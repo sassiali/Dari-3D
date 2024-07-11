@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, Renderer2, ElementRef, ViewChild } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -14,8 +14,13 @@ export class FrontComponent implements OnInit {
   private _router: Subscription;
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
 
-    constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {}
+    constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location,private route: ActivatedRoute) {}
     ngOnInit() {
+        this.route.queryParams.subscribe(params => {
+            if (params['code']) {
+              console.log("le code ",params['code'])
+          }
+        });
         console.log("hello front");
 
         var navbar : HTMLElement = this.element.nativeElement.children[0].children[0];

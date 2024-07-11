@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FullComponent } from './layouts/full/full.component';
+import { FournisseurComponent } from './Gestions/fournisseur/fournisseur.component';
+import { IngenieurComponent } from './Gestions/ingenieur/ingenieur.component';
+import { ParticulierComponent } from './Gestions/particulier/particulier.component';
 
 const routes: Routes = [
   {
@@ -11,6 +14,23 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+      }
+      ,
+      {
+        path: 'dash/fournisseur',
+        component:FournisseurComponent
+      },
+      {
+        path: 'dash/ingenieur',
+        component:IngenieurComponent
+      },
+      {
+        path: 'dash/particulier',
+        component:ParticulierComponent
+      },
+      {
+        path: 'dash/fournisseur',
+        component:FournisseurComponent
       },
       {
         path: 'about',
@@ -29,7 +49,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: false })],
   exports: [RouterModule]
 })
 export class DashRoutingModule { }
