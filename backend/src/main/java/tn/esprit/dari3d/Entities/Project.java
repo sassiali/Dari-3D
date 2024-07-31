@@ -24,14 +24,17 @@ public class Project {
      Date modificationDate;
      Double totalPrice;
     Integer landDimensions;
-    @Enumerated(EnumType.STRING)
-    FloorLevel floorLevel;
-    @Enumerated(EnumType.STRING)
-    Quality quality;
-    int nbBedroom;
-    int nbKitchen;
-    int nbLiving;
-    int nbBathroom;
+  @Enumerated(EnumType.STRING)
+  FloorLevel floorLevel;
+  @Enumerated(EnumType.STRING)
+  Quality quality;
+  int nbBedroom;
+  int nbKitchen;
+  int nbLiving;
+  int nbBathroom;
+  int nbGarage;
+  int terrace;
+
 
 
   @JsonIgnore

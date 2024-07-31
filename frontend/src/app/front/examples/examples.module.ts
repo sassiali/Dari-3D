@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LandingComponent } from './landing/landing.component';
@@ -11,6 +11,10 @@ import { ParticulierComponent } from './particulier/particulier.component';
 import { FournisseurComponent } from './fournisseur/fournisseur.component';
 import { RouterModule } from '@angular/router';
 import { SigninComponent } from './signin/signin.component';
+import { GeneratorComponent } from './generator/generator.component';
+
+
+
 
 @NgModule({
     imports: [
@@ -18,6 +22,10 @@ import { SigninComponent } from './signin/signin.component';
         FormsModule,
         NgbModule,
         RouterModule,
+        ReactiveFormsModule,
+       
+
+        
 
     ],
     declarations: [
@@ -27,7 +35,8 @@ import { SigninComponent } from './signin/signin.component';
         IngenieurComponent,
         ParticulierComponent,
         FournisseurComponent,
-        SigninComponent
+        SigninComponent,
+        GeneratorComponent,
 
     ]
 })

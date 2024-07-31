@@ -13,6 +13,7 @@ import { IngenieurComponent } from './examples/ingenieur/ingenieur.component';
 import { ParticulierComponent } from './examples/particulier/particulier.component';
 import { FournisseurComponent } from './examples/fournisseur/fournisseur.component';
 import { SigninComponent } from './examples/signin/signin.component';
+import { GeneratorComponent } from './examples/generator/generator.component';
 
 const routes: Routes =[{
   path: '', 
@@ -26,6 +27,8 @@ const routes: Routes =[{
     { path: 'signup',           component: SignupComponent },
     { path: 'signin',           component: SigninComponent },
     { path: 'landing',          component: LandingComponent },
+    { path: 'choix',          component: GeneratorComponent },
+
     { path: 'nucleoicons',      component: NucleoiconsComponent },
      { path: '', redirectTo: 'landing', pathMatch: 'full' },
     ]}

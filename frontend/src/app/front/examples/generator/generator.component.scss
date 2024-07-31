@@ -1,0 +1,84 @@
+.section {
+  position: relative; /* Pour que l'image de fond soit relative à cette section */
+  padding: 20px;
+}
+
+.background-image {
+  background-image: url('/assets/images/1.png'); /* Chemin absolu basé sur le répertoire src */
+  background-size: cover;
+  background-position: center;
+  opacity: 1; /* Ajustez l'opacité selon vos besoins */
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Pour s'assurer que le contenu reste au-dessus de l'image */
+}
+
+.container {
+  position: relative; /* Pour que le contenu soit au-dessus de l'image de fond */
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8); /* Fond blanc semi-transparent pour le contenu */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.red-bold {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.blue-bold {
+  color: rgb(34, 34, 40);
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+input[type="number"] {
+  text-align: center;
+  width: 60px;
+  margin: 0 10px;
+}
+
+.btn {
+  &.btn-secondary {
+    background-color: #777d7d;
+    border-color: #010d17;
+    color: rgb(224, 221, 221);
+
+    &:hover {
+      background-color: #8db9da;
+      border-color: #545b62;
+    }
+  }
+
+  &.small-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}
+
+.small-input {
+  width: 60px; /* Ajustez la largeur selon vos besoins */
+  text-align: center;
+}
+
+select.form-control {
+  width: auto;
+  display: inline-block;
+  margin-left: 10px;
+}

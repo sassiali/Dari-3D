@@ -1,41 +1,50 @@
 <div class="section landing-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 mr-auto ml-auto">
-                <h4 class="info-title">
-                    Notre <span style="font-weight: bold; color: red;">application</span> vous aide à <span style="font-weight: bold; color: blue;">concevoir vos plans en 2D</span> et les <span style="font-weight: bold; color: green;">convertir en 3D</span>, tout en fournissant des <span style="font-weight: bold; color: purple;">estimations de coûts</span> et des <span style="font-weight: bold; color: orange;">recommandations de fournisseurs</span>
-                </h4>
-                               
-                <form class="contact-form">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>ecrire votre budget</label>
-                            <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text"><i class="nc-icon nc-single-02"></i></span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="en TND" (focus)="focus=true" (blur)="focus=false" >
-                            </div>
-                        </div>
-                        <!-- <div class="col-md-6">
-                            <label>Email</label>
-                            <div class="input-group" [ngClass]="{'input-group-focus':focus1===true}">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">  <i class="nc-icon nc-email-85"></i></span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Email" (focus)="focus1=true" (blur)="focus1=false" >
-                            </div>
-                        </div> -->
-                    </div>
-                    <!-- <label>Message</label>
-                    <textarea class="form-control" rows="4" placeholder="Saisir votre message.."></textarea>
-                    <div class="row">
-                        <div class="col-md-4 mr-auto ml-auto">
-                            <button class="btn btn-danger btn-lg btn-fill">Envoyer votre Message</button>
-                        </div>
-                    </div> -->
-                </form>
-            </div>
-        </div>
-    </div>
+  <div class="container">
+      <div class="row">
+          <div class="col-md-8 mr-auto ml-auto text-left">
+              <h3>Devis Prévisionnel</h3>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="surface">Surface de la maison (m²)</label>
+                    <input type="number" id="surface" class="form-control" placeholder="Surface en m²" [(ngModel)]="surface" name="surface">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="floorLevel">Niveau du sol</label>
+                    <select id="floorLevel" class="form-control" [(ngModel)]="floorLevel" name="floorLevel">
+                      <option value="REZ_DE_CHAUSSEE">Rez-de-chaussée</option>
+                      <option value="PREMIER_ETAGE">Premier étage</option>
+                      <option value="DEUXIEME_ETAGE">Deuxième étage</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <h3>Estimation de Votre Projet</h3>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="quality">Qualité</label>
+                    <select id="quality" class="form-control" [(ngModel)]="quality" name="quality">
+                      <option value="BASIQUE">Basique</option>
+                      <option value="STANDING">Standard</option>
+                      <option value="HAUT_STANDING">Premium</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button class="btn btn-primary" (click)="showDevis()">Calculate</button>
+              </div>
+              <div>
+                <h3>Finish</h3>
+                <p>Devis estimé: {{ devisEstime }} DT</p>
+                <div>
+                  <button class="btn btn-secondary" routerLink="/choix">Continuer</button>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>

@@ -18,10 +18,11 @@ public class Material {
      Long id;
      String name;
      Double price;
-     String picture;
+      String picturePath;
      @JsonIgnore
     @ManyToOne()
      Category category;
+
 
 
 }

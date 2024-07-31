@@ -20,7 +20,7 @@ import { ExamplesModule } from './examples/examples.module';
   declarations: [
     NavbarComponent,
     FooterComponent,
-    FrontComponent ,
+    FrontComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +31,7 @@ import { ExamplesModule } from './examples/examples.module';
     ExamplesModule,
     FrontRoutingModule,
     RouterModule,
+   
   ],
   providers: [],
   bootstrap: [FrontComponent],

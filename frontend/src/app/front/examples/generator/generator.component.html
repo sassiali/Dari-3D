@@ -1,0 +1,54 @@
+<div class="section landing-section">
+  <div class="background-image"></div>
+  <div class="container">
+    <h1 class="red-bold">Votre plan ici !</h1>    
+    <div class="form-group d-flex justify-content-between align-items-center">
+      <label for="cuisines" class="blue-bold">Nombre de cuisines:</label>
+      <div class="input-group">
+        <button class="btn btn-secondary small-btn" (click)="decrement('cuisines')">-</button>
+        <input type="number" id="cuisines" class="form-control small-input" [(ngModel)]="cuisines" readonly>
+        <button class="btn btn-secondary small-btn" (click)="increment('cuisines')">+</button>
+      </div>
+    </div>
+    
+    <div class="form-group d-flex justify-content-between align-items-center">
+      <label for="chambres" class="blue-bold">Nombre de chambres:</label>
+      <div class="input-group">
+        <button class="btn btn-secondary small-btn" (click)="decrement('chambres')">-</button>
+        <input type="number" id="chambres" class="form-control small-input" [(ngModel)]="chambres" readonly>
+        <button class="btn btn-secondary small-btn" (click)="increment('chambres')">+</button>
+      </div>
+    </div>
+    
+    <div class="form-group d-flex justify-content-between align-items-center">
+      <label for="sallesDeBain" class="blue-bold">Nombre de salles de bain:</label>
+      <div class="input-group">
+        <button class="btn btn-secondary small-btn" (click)="decrement('sallesDeBain')">-</button>
+        <input type="number" id="sallesDeBain" class="form-control small-input" [(ngModel)]="sallesDeBain" readonly>
+        <button class="btn btn-secondary small-btn" (click)="increment('sallesDeBain')">+</button>
+      </div>
+    </div>
+  
+    <div class="form-group d-flex justify-content-between align-items-center">
+      <label for="garages" class="blue-bold">Garage:</label>
+      <div class="input-group">
+        <button class="btn btn-secondary small-btn" (click)="toggleGarage()">Toggle</button>
+        <input type="text" id="garages" class="form-control small-input" [(ngModel)]="garage" readonly>
+      </div>
+    </div>
+    
+    <div class="form-group d-flex justify-content-between align-items-center">
+      <label for="jardins" class="blue-bold">Jardin:</label>
+      <div class="input-group">
+        <button class="btn btn-secondary small-btn" (click)="toggleJardin()">Toggle</button>
+        <input type="text" id="jardins" class="form-control small-input" [(ngModel)]="jardin" readonly>
+      </div>
+    </div>
+    <div class="form-group d-flex justify-content-between align-items-center">
+      <label for="autreChose" class="blue-bold">Autre chose:</label>
+      <div class="input-group">
+        <input type="text" id="autreChose" class="form-control small-input" [(ngModel)]="autreChose">
+      </div>
+    </div>
+    <button class="btn btn-primary" (click)="generatePlan()">Générer</button>
+    

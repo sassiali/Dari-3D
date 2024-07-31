@@ -1,0 +1,36 @@
+.section.landing-section {
+    position: relative;
+    background-image: url('/assets/images/3.png'); // Chemin correct vers l'image
+    background-size: cover;
+    background-position: center;
+    color: #fff; // Optionnel : pour rendre le texte plus lisible sur l'image de fond
+  }
+  
+  .section.landing-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); // Couleur noire avec opacité de 50%
+    z-index: 1;
+  }
+  
+  .section.landing-section .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .text-left {
+    text-align: left;
+  }
+  
+  .form-group label {
+    color: blue; // Changer la couleur du texte des labels en bleu
+  }
+  
+  .form-group input,
+  .form-group select {
+    text-align: left; // Aligner les champs à gauche
+  }

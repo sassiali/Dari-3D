@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ParticulierComponent } from './particulier.component';
+import { GeneratorComponent } from './generator.component';
 
-describe('ParticulierComponent', () => {
-  let component: ParticulierComponent;
-  let fixture: ComponentFixture<ParticulierComponent>;
+describe('GeneratorComponent', () => {
+  let component: GeneratorComponent;
+  let fixture: ComponentFixture<GeneratorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ParticulierComponent ]
+      declarations: [ GeneratorComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ParticulierComponent);
+    fixture = TestBed.createComponent(GeneratorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -20,9 +20,4 @@ describe('ParticulierComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-
-
-
-  
 });
