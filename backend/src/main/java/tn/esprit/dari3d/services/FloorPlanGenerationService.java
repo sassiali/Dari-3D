@@ -44,4 +44,21 @@ public class FloorPlanGenerationService {
       throw new RuntimeException("Failed to generate floor plan: " + response.getStatusCode());
     }
   }
+
+  public BufferedImage convert2Dto3D(BufferedImage image2D) {
+    // Create a new image that will hold the 3D version
+    BufferedImage image3D = new BufferedImage(image2D.getWidth(), image2D.getHeight(), image2D.getType());
+
+    // Apply some transformation to the 2D image to create the 3D effect
+    // This is just a placeholder - you'll need to replace this with your actual 3D conversion code
+    for (int y = 0; y < image2D.getHeight(); y++) {
+      for (int x = 0; x < image2D.getWidth(); x++) {
+        int pixel = image2D.getRGB(x, y);
+        // Apply some transformation to the pixel here
+        image3D.setRGB(x, y, pixel);
+      }
+    }
+
+    return image3D;
+  }
 }

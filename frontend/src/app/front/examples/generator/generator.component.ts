@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { GenererPlanService } from '../../../core/services/generer-plan.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { saveAs } from 'file-saver';
+import * as JSZip from 'jszip';
 
 @Component({
   selector: 'app-generator',
@@ -7,53 +9,65 @@ import { GenererPlanService } from '../../../core/services/generer-plan.service'
   styleUrls: ['./generator.component.scss']
 })
 export class GeneratorComponent {
-  cuisines: number = 0;
   chambres: number = 0;
   sallesDeBain: number = 0;
-  garage: string = 'non';
-  jardin: string = 'non';
+  cuisines: number = 0;
+  garage: boolean = false;
+  jardin: boolean = false;
   autreChose: string = '';
+  northSideDetails: string = 'default north side details';
+  southSideDetails: string = 'default south side details';
+  eastSideDetails: string = 'default east side details';
+  westSideDetails: string = 'default west side details';
 
-  constructor(private genererPlanService: GenererPlanService) {}
+  constructor(private http: HttpClient) {}
 
-  toggleGarage() {
-    this.garage = this.garage === 'oui' ? 'non' : 'oui';
-  }
-
-  toggleJardin() {
-    this.jardin = this.jardin === 'oui' ? 'non' : 'oui';
-  }
-
-  increment(field: string) {
-    this[field]++;
-  }
-
-  decrement(field: string) {
-    if (this[field] > 0) {
-      this[field]--;
+  decrement(property: string) {
+    if (this[property] > 0) {
+      this[property]--;
     }
   }
 
-  generatePlan() {
-    const description = `A floor plan 2d 50*20 metre with  ${this.chambres} bedrooms, ${this.sallesDeBain} bathrooms, ${this.cuisines} kitchen(s), a garage, a garden,${this.autreChose} and other features.`;
-    console.log('Plan généré avec la description suivante:');
-    console.log(description);
-    console.log('Garage:', this.garage);
-    console.log('Jardin:', this.jardin);
-    console.log('Autre chose:', this.autreChose);
-    console.log('Cuisines:', this.cuisines);
-    console.log('Chambres:', this.chambres);
-    console.log('Salles de bain:', this.sallesDeBain);
+  increment(property: string) {
+    this[property]++;
+  }
 
-    this.genererPlanService.generateFloorPlan(description).subscribe(
-      (imageBlob) => {
-        const url = URL.createObjectURL(imageBlob);
-        console.log('Floor plan generated:', url);
-        window.open(url);
-      },
-      (error) => {
-        console.error('Failed to generate floor plan:', error);
-      }
-    );
+  toggleGarage() {
+    this.garage = !this.garage;
+  }
+
+  toggleJardin() {
+    this.jardin = !this.jardin;
+  }
+
+  async generateAndConvertFloorPlans() {
+    const description2D = `A floor plan (2D) 20*20 metre with ${this.chambres} bedrooms, ${this.sallesDeBain} bathrooms, ${this.cuisines} kitchen(s), ${this.garage ? 'a garage,' : ''} ${this.jardin ? 'a garden,' : ''} ${this.autreChose} and other features.`;
+    const description3D = `A floor plan (3D) with dessign 50*20 metre with ${this.chambres} bedrooms, ${this.sallesDeBain} bathrooms, ${this.cuisines} kitchen(s), ${this.garage ? 'a garage,' : ''} ${this.jardin ? 'a garden,' : ''} ${this.autreChose} and other features.`;
+
+    const northDescription = `${description3D} -  real North side 3D: ${this.northSideDetails}`;
+    const southDescription = `${description3D} - real South side 3D: ${this.southSideDetails}`;
+    const eastDescription = `${description3D} -  real East side 3D: ${this.eastSideDetails}`;
+    const westDescription = `${description3D} -  real West side 3D: ${this.westSideDetails}`;
+
+    const zip = new JSZip();
+
+    await this.generateAndConvertFloorPlan('2d', description2D, '', zip);
+    await this.generateAndConvertFloorPlan('3d', northDescription, 'north', zip);
+    await this.generateAndConvertFloorPlan('3d', southDescription, 'south', zip);
+    await this.generateAndConvertFloorPlan('3d', eastDescription, 'east', zip);
+    await this.generateAndConvertFloorPlan('3d', westDescription, 'west', zip);
+
+    zip.generateAsync({ type: 'blob' }).then(content => {
+      saveAs(content, 'floorplans.zip');
+    });
+  }
+
+  async generateAndConvertFloorPlan(planType: '2d' | '3d', description: string, side: string, zip: JSZip) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const payload = { description };
+
+    const response = await this.http.post('http://localhost:9090/api/floorplan/generateAndConvert', payload, { headers, responseType: 'blob' }).toPromise();
+    const fileName = planType === '2d' ? 'image2d.zip' : `image3d_${side}.zip`;
+    zip.file(fileName, response);
   }
 }

@@ -4,7 +4,7 @@ package tn.esprit.dari3d.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.dari3d.Entities.Category;
-import tn.esprit.dari3d.Services.CategoryService;
+import tn.esprit.dari3d.services.CategoryService;
 
 import java.util.List;
 

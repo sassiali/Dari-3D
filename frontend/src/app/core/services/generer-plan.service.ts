@@ -1,6 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,28 @@ export class GenererPlanService {
       'Content-Type': 'application/json'
     });
 
-    return this.httpClient.post(`${this.baseURL}/generate`, description, { headers, responseType: 'blob' });
+    const payload = { description };
+
+    console.log('Payload:', payload);
+    console.log('Headers:', headers);
+
+    return this.httpClient.post(`${this.baseURL}/generateAndConvert`, payload, { headers, responseType: 'blob' })
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    let errorMessage = 'An unknown error occurred!';
+    if (error.error instanceof ErrorEvent) {
+      // Client-side or network error
+      errorMessage = `A client-side error occurred: ${error.error.message}`;
+    } else {
+      // Backend error
+      errorMessage = `Backend returned code ${error.status}, body was: ${error.error}`;
+    }
+    console.error('Error response body:', error.error);
+    console.error(errorMessage);
+    return throwError(errorMessage);
   }
 }
